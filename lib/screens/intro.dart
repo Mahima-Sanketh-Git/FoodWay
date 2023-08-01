@@ -48,14 +48,16 @@ class _IntroState extends State<Intro> {
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Home(),
-                    ),
-                  );
-                });
+                setState(
+                  () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Home(),
+                      ),
+                    );
+                  },
+                );
               },
               child: Container(
                 width: 286,
