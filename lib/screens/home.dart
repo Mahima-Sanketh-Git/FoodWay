@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodway/constants/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:foodway/screens/test.dart';
+import 'package:quickalert/quickalert.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,6 +17,18 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: bcolor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text(
+            "Menu",
+            style: GoogleFonts.openSans(
+              fontWeight: FontWeight.w600,
+              fontSize: 36,
+              color: tcolor,
+            ),
+          ),
+        ),
         toolbarHeight: 70,
         backgroundColor: bcolor,
         elevation: 0,
@@ -199,10 +214,515 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: const SafeArea(
+      //! body
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
-        children: [],
-      )),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(25),
+                      ),
+                    ),
+                    hintText: "Search",
+                    hintStyle: GoogleFonts.openSans(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      size: 35,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 73,
+                      height: 75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xff14b8ff),
+                      ),
+                      child: Center(
+                        child: Image.asset("assets/plate.png"),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Mytest()));
+                      },
+                      child: Container(
+                        width: 73,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: Image.asset('assets/burger.png'),
+                      ),
+                    ),
+                    Container(
+                      width: 73,
+                      height: 75,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: Image.asset("assets/pizza.png"),
+                    ),
+                    Container(
+                      width: 73,
+                      height: 75,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: Image.asset("assets/drinks.png"),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Text(
+                        "All",
+                        style: GoogleFonts.openSans(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: stcolor,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 12),
+                      child: Text(
+                        "Burgers",
+                        style: GoogleFonts.openSans(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: stcolor,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "Pizza",
+                      style: GoogleFonts.openSans(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: stcolor,
+                      ),
+                    ),
+                    Text(
+                      "Drinks",
+                      style: GoogleFonts.openSans(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: stcolor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "Promotions",
+                  style: GoogleFonts.openSans(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w600,
+                    color: tcolor,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 150,
+                width: 338,
+                child: Stack(
+                  fit: StackFit.expand,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  children: [
+                    Container(
+                      width: 338,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color(0xff7c73c0),
+                      ),
+                    ),
+                    Positioned(
+                      top: 30,
+                      left: 30,
+                      child: Text(
+                        "French Fries",
+                        style: GoogleFonts.openSans(
+                          fontSize: 32,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 80,
+                      left: 70,
+                      child: Row(
+                        children: [
+                          const Text(
+                            "\$1000",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: const Icon(
+                              Icons.add_circle_outline_rounded,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Image.asset(
+                      "assets/French Fries.png",
+                      alignment: Alignment.centerRight,
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "Popular",
+                  style: GoogleFonts.openSans(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w600,
+                    color: tcolor,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 7,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 153,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Container(
+                      width: 128,
+                      height: 147,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: const Color(0xffede4ff),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 3),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/b.png"),
+                            const SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              "spicy Burger",
+                              style: GoogleFonts.openSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "\$100",
+                                  style: GoogleFonts.openSans(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        const Color.fromRGBO(232, 15, 136, 1),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.success,
+                                        text: "Sussesfully Added Your Food",
+                                        autoCloseDuration:
+                                            const Duration(seconds: 3));
+                                  },
+                                  icon: const Icon(
+                                    Icons.add_circle_outline_rounded,
+                                    size: 30,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      width: 128,
+                      height: 147,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: const Color(0xffede4ff),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/pi.png"),
+                            const SizedBox(
+                              height: 1,
+                            ),
+                            Text(
+                              "Classic Pizza",
+                              style: GoogleFonts.openSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "\$280",
+                                  style: GoogleFonts.openSans(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        const Color.fromRGBO(232, 15, 136, 1),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.add_circle_outline_rounded,
+                                    size: 30,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      width: 128,
+                      height: 147,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: const Color(0xffede4ff),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/chips.png",
+                              width: 58,
+                            ),
+                            const SizedBox(
+                              height: 1,
+                            ),
+                            Text(
+                              "Classic Rice",
+                              style: GoogleFonts.openSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "\$580",
+                                  style: GoogleFonts.openSans(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        const Color.fromRGBO(232, 15, 136, 1),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.add_circle_outline_rounded,
+                                    size: 30,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      width: 128,
+                      height: 147,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: const Color(0xffede4ff),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/op.png",
+                              height: 75,
+                            ),
+                            const SizedBox(
+                              height: 1,
+                            ),
+                            Text(
+                              "Submarine",
+                              style: GoogleFonts.openSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "\$990",
+                                  style: GoogleFonts.openSans(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        const Color.fromRGBO(232, 15, 136, 1),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.add_circle_outline_rounded,
+                                    size: 30,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(
+            backgroundColor: bncolor,
+            icon: const Icon(
+              Icons.home,
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "home",
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "search",
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart_checkout,
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "searc",
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "searc",
+          ),
+        ],
+      ),
     );
   }
 }
