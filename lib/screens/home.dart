@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodway/constants/colors.dart';
+import 'package:foodway/screens/Pizza.dart';
+import 'package:foodway/screens/burgers.dart';
+import 'package:foodway/screens/drinks.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:foodway/screens/test.dart';
-import 'package:quickalert/quickalert.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -268,9 +270,11 @@ class _HomeState extends State<Home> {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Mytest()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Burgers(),
+                          ),
+                        );
                       },
                       child: Container(
                         width: 73,
@@ -281,21 +285,41 @@ class _HomeState extends State<Home> {
                         child: Image.asset('assets/burger.png'),
                       ),
                     ),
-                    Container(
-                      width: 73,
-                      height: 75,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white),
-                      child: Image.asset("assets/pizza.png"),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Pizza(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 73,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: Image.asset("assets/pizza.png"),
+                      ),
                     ),
-                    Container(
-                      width: 73,
-                      height: 75,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white),
-                      child: Image.asset("assets/drinks.png"),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Drinks(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 73,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: Image.asset("assets/drinks.png"),
+                      ),
                     ),
                   ],
                 ),
@@ -366,65 +390,67 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 15,
               ),
-              SizedBox(
-                height: 150,
-                width: 338,
-                child: Stack(
-                  fit: StackFit.expand,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  children: [
-                    Container(
-                      width: 338,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: const Color(0xff7c73c0),
-                      ),
-                    ),
-                    Positioned(
-                      top: 30,
-                      left: 30,
-                      child: Text(
-                        "French Fries",
-                        style: GoogleFonts.openSans(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+              GestureDetector(
+                onTap: () {
+                  fun(context);
+                },
+                child: SizedBox(
+                  height: 150,
+                  width: 338,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    children: [
+                      Container(
+                        width: 338,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: const Color(0xff7c73c0),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      top: 80,
-                      left: 70,
-                      child: Row(
-                        children: [
-                          const Text(
-                            "\$1000",
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
+                      Positioned(
+                        top: 30,
+                        left: 30,
+                        child: Text(
+                          "French Fries",
+                          style: GoogleFonts.openSans(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 80,
+                        left: 70,
+                        child: Row(
+                          children: [
+                            Text(
+                              "\$1000",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: const Icon(
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(
                               Icons.add_circle_outline_rounded,
                               color: Colors.white,
                               size: 35,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Image.asset(
-                      "assets/French Fries.png",
-                      alignment: Alignment.centerRight,
-                    )
-                  ],
+                      Image.asset(
+                        "assets/French Fries.png",
+                        alignment: Alignment.centerRight,
+                      )
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
@@ -490,12 +516,7 @@ class _HomeState extends State<Home> {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    QuickAlert.show(
-                                        context: context,
-                                        type: QuickAlertType.success,
-                                        text: "Sussesfully Added Your Food",
-                                        autoCloseDuration:
-                                            const Duration(seconds: 3));
+                                    fun(context);
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
@@ -550,7 +571,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    fun(context);
+                                  },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
                                     size: 30,
@@ -607,7 +630,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    fun(context);
+                                  },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
                                     size: 30,
@@ -664,7 +689,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    fun(context);
+                                  },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
                                     size: 30,
@@ -725,4 +752,20 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+fun(context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      margin: const EdgeInsets.only(bottom: 600),
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      duration: const Duration(seconds: 1),
+      content: AwesomeSnackbarContent(
+          title: 'Succses',
+          message: 'Sucssesfully added your food',
+          contentType: ContentType.success),
+    ),
+  );
 }

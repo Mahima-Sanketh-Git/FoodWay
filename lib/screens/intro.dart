@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodway/constants/colors.dart';
 import 'package:foodway/screens/home.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Intro extends StatefulWidget {
   const Intro({super.key});
@@ -50,8 +51,9 @@ class _IntroState extends State<Intro> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const Home(),
+                  PageTransition(
+                    child: const Home(),
+                    type: PageTransitionType.fade,
                   ),
                 );
               },
