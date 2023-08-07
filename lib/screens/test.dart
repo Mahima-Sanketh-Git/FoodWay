@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quickalert/quickalert.dart';
 
 class Mytest extends StatefulWidget {
   const Mytest({super.key});
@@ -8,24 +7,52 @@ class Mytest extends StatefulWidget {
   State<Mytest> createState() => _MytestState();
 }
 
+bool isclick = false;
+
 class _MytestState extends State<Mytest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 150),
+        padding: const EdgeInsets.symmetric(horizontal: 150, vertical: 80),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  QuickAlert.show(
-                      context: context, type: QuickAlertType.success);
-                },
-                child: const Text("Click"))
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  isclick = true;
+                });
+              },
+              icon: const Icon(
+                Icons.add,
+                size: 50,
+              ),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return myfun(isclick);
+              },
+            )
           ],
         ),
       ),
     );
+  }
+}
+
+myfun(bool isclick) {
+  if (isclick == true) {
+    Container(
+      width: 336,
+      height: 76,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: const Color(0xffede4ff),
+      ),
+    );
+  } else {
+    null;
   }
 }

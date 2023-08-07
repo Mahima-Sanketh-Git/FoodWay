@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:foodway/constants/colors.dart';
-import 'package:foodway/screens/Pizza.dart';
+
 import 'package:foodway/screens/burgers.dart';
 import 'package:foodway/screens/drinks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:foodway/screens/cart.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,6 +15,9 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
+
+bool isclick = false;
+int index = 0;
 
 class _HomeState extends State<Home> {
   @override
@@ -290,7 +296,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Pizza(),
+                            builder: (context) => const Home(),
                           ),
                         );
                       },
@@ -393,6 +399,9 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   fun(context);
+                  setState(() {
+                    isclick = !isclick;
+                  });
                 },
                 child: SizedBox(
                   height: 150,
@@ -710,43 +719,38 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-            backgroundColor: bncolor,
-            icon: const Icon(
-              Icons.home,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "home",
+      bottomNavigationBar: GNav(
+        selectedIndex: 0,
+        tabMargin: const EdgeInsets.symmetric(horizontal: 8),
+        backgroundColor: stcolor,
+        activeColor: Colors.white,
+        color: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        hoverColor: Colors.grey,
+        tabBackgroundColor: Colors.grey,
+        gap: 8,
+        tabs: [
+          const GButton(
+            icon: LineIcons.home,
+            text: 'Home',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "search",
+          GButton(
+            icon: LineIcons.shoppingCart,
+            text: 'Cart',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Cart()),
+              );
+            },
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart_checkout,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "searc",
+          const GButton(
+            icon: LineIcons.search,
+            text: 'Search',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "searc",
+          const GButton(
+            icon: LineIcons.user,
+            text: 'User',
           ),
         ],
       ),
@@ -768,4 +772,19 @@ fun(context) {
           contentType: ContentType.success),
     ),
   );
+}
+
+myfun(bool isclick) {
+  if (isclick == true) {
+    Container(
+      width: 336,
+      height: 76,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: const Color(0xffede4ff),
+      ),
+    );
+  } else {
+    null;
+  }
 }
