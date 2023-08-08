@@ -3,6 +3,7 @@ import 'package:foodway/constants/colors.dart';
 
 import 'package:foodway/screens/burgers.dart';
 import 'package:foodway/screens/drinks.dart';
+import 'package:foodway/screens/pizza.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -16,6 +17,9 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+String image = "";
+String text = "";
+String price = "";
 bool isclick = false;
 int index = 0;
 
@@ -142,7 +146,10 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                   size: 30,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Cart()));
+                },
                 title: const Text(
                   "Cart",
                   style: TextStyle(
@@ -300,13 +307,23 @@ class _HomeState extends State<Home> {
                           ),
                         );
                       },
-                      child: Container(
-                        width: 73,
-                        height: 75,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white),
-                        child: Image.asset("assets/pizza.png"),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Pizza(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 73,
+                          height: 75,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white),
+                          child: Image.asset("assets/pizza.png"),
+                        ),
                       ),
                     ),
                     GestureDetector(
@@ -314,7 +331,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Drinks(),
+                            builder: (context) => const Drink(),
                           ),
                         );
                       },
@@ -400,7 +417,10 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   fun(context);
                   setState(() {
-                    isclick = !isclick;
+                    cart = cart + 1;
+                    list.add('French Fries');
+                    listimg.add("assets/French Fries.png");
+                    listprice.add("\$1000");
                   });
                 },
                 child: SizedBox(
@@ -526,6 +546,12 @@ class _HomeState extends State<Home> {
                                 IconButton(
                                   onPressed: () {
                                     fun(context);
+                                    setState(() {
+                                      cart = cart + 1;
+                                      list.add('spicy Burger');
+                                      listimg.add("assets/b.png");
+                                      listprice.add("\$100");
+                                    });
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
@@ -582,6 +608,12 @@ class _HomeState extends State<Home> {
                                 IconButton(
                                   onPressed: () {
                                     fun(context);
+                                    setState(() {
+                                      cart = cart + 1;
+                                      list.add('Classic Pizza');
+                                      listimg.add("assets/pi.png");
+                                      listprice.add("\$280");
+                                    });
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
@@ -641,6 +673,12 @@ class _HomeState extends State<Home> {
                                 IconButton(
                                   onPressed: () {
                                     fun(context);
+                                    setState(() {
+                                      cart = cart + 1;
+                                      list.add('Classic Rice');
+                                      listimg.add("assets/chips.png");
+                                      listprice.add("\$580");
+                                    });
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,
@@ -700,6 +738,12 @@ class _HomeState extends State<Home> {
                                 IconButton(
                                   onPressed: () {
                                     fun(context);
+                                    setState(() {
+                                      cart = cart + 1;
+                                      list.add('Submarine');
+                                      listimg.add("assets/op.png");
+                                      listprice.add("\$990");
+                                    });
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline_rounded,

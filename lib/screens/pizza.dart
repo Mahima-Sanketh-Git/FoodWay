@@ -6,14 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
-class Burgers extends StatefulWidget {
-  const Burgers({super.key});
+class Pizza extends StatefulWidget {
+  const Pizza({super.key});
 
   @override
-  State<Burgers> createState() => _BurgersState();
+  State<Pizza> createState() => _PizzasState();
 }
 
-class _BurgersState extends State<Burgers> {
+class _PizzasState extends State<Pizza> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +48,9 @@ class _BurgersState extends State<Burgers> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Text(
-                  "Burgers",
+                  "Pizza",
                   style: GoogleFonts.openSans(
                     fontSize: 60,
                     fontWeight: FontWeight.w600,
@@ -87,9 +87,9 @@ class _BurgersState extends State<Burgers> {
                   fun(context);
                   setState(() {
                     cart = cart + 1;
-                    list.add('Double Burger');
-                    listimg.add("assets/hm.png");
-                    listprice.add("\$500");
+                    list.add('Classic Pizza');
+                    listimg.add("assets/sp.png");
+                    listprice.add("\$560");
                   });
                 },
                 child: Center(
@@ -109,14 +109,14 @@ class _BurgersState extends State<Burgers> {
                             child: Column(
                               children: [
                                 Text(
-                                  "Double Burger",
+                                  "Classic Pizza",
                                   style: GoogleFonts.openSans(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 const Text(
-                                  "\$500",
+                                  "\$560",
                                   style: TextStyle(
                                     fontSize: 32,
                                     fontWeight: FontWeight.w700,
@@ -156,7 +156,7 @@ class _BurgersState extends State<Burgers> {
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(bottom: 40),
-                                    child: Image.asset("assets/hm.png"),
+                                    child: Image.asset("assets/sp.png"),
                                   ),
                                 ),
                               ],
@@ -197,12 +197,12 @@ class _BurgersState extends State<Burgers> {
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Column(
                           children: [
-                            Image.asset("assets/b.png"),
+                            Image.asset("assets/pi.png"),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "spicy Burger",
+                              "Kit Pizza",
                               style: GoogleFonts.openSans(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
@@ -228,8 +228,8 @@ class _BurgersState extends State<Burgers> {
                                       fun(context);
                                       setState(() {
                                         cart = cart + 1;
-                                        list.add('Spicy Burger');
-                                        listimg.add("assets/b.png");
+                                        list.add('Kit Pizza');
+                                        listimg.add("assets/pi.png");
                                         listprice.add("\$160");
                                       });
                                     });
@@ -257,9 +257,9 @@ class _BurgersState extends State<Burgers> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Column(
                           children: [
-                            Image.asset("assets/op.png"),
+                            Image.asset("assets/olo.png"),
                             Text(
-                              "Fit Burger",
+                              "Spicy Pizza",
                               style: GoogleFonts.openSans(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
@@ -285,8 +285,8 @@ class _BurgersState extends State<Burgers> {
                                       fun(context);
                                       setState(() {
                                         cart = cart + 1;
-                                        list.add('Fit Burger');
-                                        listimg.add("assets/op.png");
+                                        list.add('Spicy Pizza');
+                                        listimg.add("assets/pizza.png");
                                         listprice.add("\$360");
                                       });
                                     });
@@ -325,12 +325,12 @@ class _BurgersState extends State<Burgers> {
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Column(
                           children: [
-                            Image.asset("assets/b.png"),
+                            Image.asset("assets/pi.png"),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "spicy Burger",
+                              "Kit Pizza",
                               style: GoogleFonts.openSans(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
@@ -356,8 +356,8 @@ class _BurgersState extends State<Burgers> {
                                       fun(context);
                                       setState(() {
                                         cart = cart + 1;
-                                        list.add('Spicy Burger');
-                                        listimg.add("assets/b.png");
+                                        list.add('Kit Pizza');
+                                        listimg.add("assets/pi.png");
                                         listprice.add("\$160");
                                       });
                                     });
@@ -384,9 +384,9 @@ class _BurgersState extends State<Burgers> {
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Column(
                         children: [
-                          Image.asset("assets/op.png"),
+                          Image.asset("assets/olo.png"),
                           Text(
-                            "Fit Burger",
+                            "Spicy Burger",
                             style: GoogleFonts.openSans(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
@@ -412,8 +412,8 @@ class _BurgersState extends State<Burgers> {
                                     fun(context);
                                     setState(() {
                                       cart = cart + 1;
-                                      list.add('Fit Burger');
-                                      listimg.add("assets/op.png");
+                                      list.add('Spicy Burger');
+                                      listimg.add("assets/olo.png");
                                       listprice.add("\$360");
                                     });
                                   });
