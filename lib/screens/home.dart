@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:foodway/constants/colors.dart';
 
 import 'package:foodway/screens/burgers.dart';
+import 'package:foodway/screens/cp.dart';
+
 import 'package:foodway/screens/drinks.dart';
 import 'package:foodway/screens/pizza.dart';
+import 'package:foodway/screens/profile.dart';
+import 'package:foodway/screens/sp.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -505,124 +509,144 @@ class _HomeState extends State<Home> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    Container(
-                      width: 128,
-                      height: 147,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color(0xffede4ff),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 3),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/b.png"),
-                            const SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              "spicy Burger",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Sburger()));
+                        });
+                      }, //!we
+                      child: Container(
+                        width: 128,
+                        height: 147,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: const Color(0xffede4ff),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 3),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/b.png"),
+                              const SizedBox(
+                                height: 3,
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(
-                                  width: 20,
+                              Text(
+                                "spicy Burger",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
                                 ),
-                                Text(
-                                  "\$100",
-                                  style: GoogleFonts.openSans(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color:
-                                        const Color.fromRGBO(232, 15, 136, 1),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const SizedBox(
+                                    width: 20,
                                   ),
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    fun(context);
-                                    setState(() {
-                                      cart = cart + 1;
-                                      list.add('spicy Burger');
-                                      listimg.add("assets/b.png");
-                                      listprice.add("\$100");
-                                    });
-                                  },
-                                  icon: const Icon(
-                                    Icons.add_circle_outline_rounded,
-                                    size: 30,
+                                  Text(
+                                    "\$100",
+                                    style: GoogleFonts.openSans(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color:
+                                          const Color.fromRGBO(232, 15, 136, 1),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  IconButton(
+                                    onPressed: () {
+                                      fun(context);
+                                      setState(() {
+                                        cart = cart + 1;
+                                        list.add('spicy Burger');
+                                        listimg.add("assets/b.png");
+                                        listprice.add("\$100");
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.add_circle_outline_rounded,
+                                      size: 30,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                     const SizedBox(
                       width: 15,
                     ),
-                    Container(
-                      width: 128,
-                      height: 147,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color(0xffede4ff),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/pi.png"),
-                            const SizedBox(
-                              height: 1,
-                            ),
-                            Text(
-                              "Classic Pizza",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Spizza()));
+                        });
+                      },
+                      child: Container(
+                        width: 128,
+                        height: 147,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: const Color(0xffede4ff),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/pi.png"),
+                              const SizedBox(
+                                height: 1,
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(
-                                  width: 20,
+                              Text(
+                                "Classic Pizza",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
                                 ),
-                                Text(
-                                  "\$280",
-                                  style: GoogleFonts.openSans(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color:
-                                        const Color.fromRGBO(232, 15, 136, 1),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const SizedBox(
+                                    width: 20,
                                   ),
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    fun(context);
-                                    setState(() {
-                                      cart = cart + 1;
-                                      list.add('Classic Pizza');
-                                      listimg.add("assets/pi.png");
-                                      listprice.add("\$280");
-                                    });
-                                  },
-                                  icon: const Icon(
-                                    Icons.add_circle_outline_rounded,
-                                    size: 30,
+                                  Text(
+                                    "\$280",
+                                    style: GoogleFonts.openSans(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color:
+                                          const Color.fromRGBO(232, 15, 136, 1),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  IconButton(
+                                    onPressed: () {
+                                      fun(context);
+                                      setState(() {
+                                        cart = cart + 1;
+                                        list.add('Classic Pizza');
+                                        listimg.add("assets/pi.png");
+                                        listprice.add("\$280");
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.add_circle_outline_rounded,
+                                      size: 30,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -782,19 +806,27 @@ class _HomeState extends State<Home> {
             icon: LineIcons.shoppingCart,
             text: 'Cart',
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Cart()),
-              );
+              setState(() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Cart()),
+                );
+              });
             },
           ),
           const GButton(
             icon: LineIcons.search,
             text: 'Search',
           ),
-          const GButton(
+          GButton(
             icon: LineIcons.user,
             text: 'User',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Profile()),
+              );
+            },
           ),
         ],
       ),

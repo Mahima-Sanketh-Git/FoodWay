@@ -193,7 +193,7 @@ class _DrinkState extends State<Drink> {
                         color: const Color(0xffede4ff),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Column(
                           children: [
                             Image.asset("assets/ew.png"),
@@ -321,7 +321,7 @@ class _DrinkState extends State<Drink> {
                         color: const Color(0xffede4ff),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Column(
                           children: [
                             Image.asset("assets/ew.png"),
